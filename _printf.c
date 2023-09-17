@@ -13,6 +13,7 @@ int i = 0;
 char nextChar;
 char *temp;
 char *str;
+int number;
 const char *pointer;
 if (format == NULL)
 return (-1);
@@ -42,6 +43,14 @@ for (temp = str; *temp; temp++)
 	i++;
 }
 write(1, str, i);
+}
+else if (nextChar == 'd' || nextChar == 'i')
+{
+char buffer[20];
+number = va_arg(arguments, int);
+int len = sprintf(buffer, "%d", number);
+write(1, buffer, len);
+i += len;
 }
 else if (nextChar == '%')
 {

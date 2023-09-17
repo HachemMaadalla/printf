@@ -1,8 +1,11 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-int _putchar(char c);
+#include <stdarg.h>
+#include <unistd.h>
+/**
+ * _printf - printf function
+ * @format: format of the input
+ * Return: Print the input
+ */
 int _printf(const char *format, ...);
-#endif
+#endif /* MAIN_H */

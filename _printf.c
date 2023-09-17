@@ -9,6 +9,7 @@ int _printf(const char *format, ...)
 {
 va_list arguments;
 int i = 0;
+char nextChar;
 const char *pointer;
 if (format == NULL)
 return (-1);
@@ -23,7 +24,7 @@ if (*pointer != '%')
 else
 {
 	pointer++;
-	char nextChar = *pointer;
+	nextChar = *pointer;
 if (nextChar == 'c')
 {
 	char c = (char) va_arg(arguments, int);

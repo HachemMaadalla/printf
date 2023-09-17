@@ -19,7 +19,7 @@ for (pointer = format; *pointer != '\0'; pointer++)
 if (*pointer != '%')
 {
 	write(1, pointer, 1);
-	count++;
+	i++;
 }
 else
 {

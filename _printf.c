@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdio.h>
 #include "main.h"
 /**
  * _printf - printf function
@@ -14,6 +15,7 @@ char nextChar;
 char *temp;
 char *str;
 int number;
+int len;
 const char *pointer;
 if (format == NULL)
 return (-1);
@@ -48,7 +50,7 @@ else if (nextChar == 'd' || nextChar == 'i')
 {
 char buffer[20];
 number = va_arg(arguments, int);
-int len = sprintf(buffer, "%d", number);
+len = sprintf(buffer, "%d", number);
 write(1, buffer, len);
 i += len;
 }

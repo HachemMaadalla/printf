@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 va_list arguments;
 int i = 0;
 char nextChar;
-char temp;
+char *temp;
+char *str;
 const char *pointer;
 if (format == NULL)
 return (-1);
@@ -35,8 +36,8 @@ if (nextChar == 'c')
 } 
 else if (nextChar == 's')
 {
-	char *str = va_arg(arguments, char *);
-for (*temp = str; *temp; temp++)
+	str = va_arg(arguments, char *);
+for (temp = str; *temp; temp++)
 {
 	i++;
 }

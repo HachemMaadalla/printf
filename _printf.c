@@ -60,6 +60,7 @@ char *str;
 int number;
 int len;
 int len2;
+int len3;
 const char *pointer;
 unsigned int num;
 if (format == NULL)
@@ -85,11 +86,13 @@ if (nextChar == 'c')
 else if (nextChar == 's')
 {
 	str = va_arg(arguments, char *);
+	len3 = 0;
 for (temp = str; *temp; temp++)
 {
-	i++;
+	len3++;
 }
-write(1, str, i);
+write(1, str, len3);
+i += len3;
 }
 else if (nextChar == 'b')
 {

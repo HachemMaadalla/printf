@@ -2,6 +2,29 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "main.h"
+
+/**
+ * unsigned_int_to_binary - convert unsigned int to binary
+ * @num: int
+ * @buffer: buffer
+ * Return: j
+ */
+int unsigned_int_to_binary(unsigned int num, char *buffer) {
+int j = 0;
+if (num == 0)
+{
+buffer[j++] = '0';
+}
+else
+{
+for (; num; num >>= 1)
+{
+buffer[j++] = (num & 1) + '0';
+}
+}
+return j;
+}
+
 /**
  * _printf - printf function
  * @format: format of the input
@@ -11,12 +34,15 @@ int _printf(const char *format, ...)
 {
 va_list arguments;
 int i = 0;
+int j;
 char nextChar;
 char *temp;
 char *str;
 int number;
 int len;
+int len2;
 const char *pointer;
+unsigned int num;
 if (format == NULL)
 return (-1);
 va_start(arguments, format); 
@@ -45,6 +71,17 @@ for (temp = str; *temp; temp++)
 	i++;
 }
 write(1, str, i);
+}
+else if (nextChar == 'b')
+{
+char buffer[33];
+num = va_arg(arguments, unsigned int);
+len2 = unsigned_int_to_binary(num, buffer);
+for (j = len - 1; j >= 0; j--)
+{
+	write(1, &buffer[j], 1);
+}
+i += len2;
 }
 else if (nextChar == 'd' || nextChar == 'i')
 {

@@ -96,7 +96,7 @@ else if (nextChar == 'b')
 char buffer[33];
 num = va_arg(arguments, unsigned int);
 len2 = unsigned_int_to_binary(num, buffer);
-for (j = len - 1; j >= 0; j--)
+for (j = 0; j < len2; j++)
 {
 	write(1, &buffer[j], 1);
 }

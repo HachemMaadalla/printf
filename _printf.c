@@ -70,8 +70,8 @@ for (pointer = format; *pointer != '\0'; pointer++)
 {
 if (*pointer != '%')
 {
-	write(1, pointer, 1);
-	i++;
+write(1, pointer, 1);
+i++;
 }
 else
 {

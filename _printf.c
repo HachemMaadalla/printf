@@ -4,6 +4,24 @@
 #include "main.h"
 
 /**
+ * reverse_buffer - convert unsigned int to binary
+ * @buffer: buffer
+ * @len: len
+ */
+void reverse_buffer(char *buffer, int len)
+{
+int start = 0, end = len - 1;
+while (start < end)
+{
+	char temp = buffer[start];
+	buffer[start] = buffer[end];
+	buffer[end] = temp;
+	start++;
+	end--;
+}
+}
+
+/**
  * unsigned_int_to_binary - convert unsigned int to binary
  * @num: int
  * @buffer: buffer
@@ -22,6 +40,7 @@ for (; num; num >>= 1)
 buffer[j++] = (num & 1) + '0';
 }
 }
+reverse_buffer(buffer, j);
 return j;
 }
 
